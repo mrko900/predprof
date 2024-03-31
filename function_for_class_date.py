@@ -6,9 +6,16 @@ def get_light_room(self, data):
                 res.append(data[i][j][0])
     return res
 
-def check_request(self, request):
+def full_check_request(self, request):
     res = [True for i in range(request.size())]
     real_nums = get_light_room()
     for i in range(request.size()):
         res[i] = request[i] in real_nums
+    return res
+
+def check_request(self, request):
+    res = True
+    real_nums = get_light_room()
+    for i in range(request.size()):
+        res *= request[i] in real_nums
     return res
