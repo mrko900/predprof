@@ -1,3 +1,6 @@
+import request_funcs
+
+
 def parse_date(rooms_count, windows_for_room, floors):
     data = []
     floors_count = len(floors)
@@ -21,8 +24,8 @@ class Dates:
     def __init__(self):
         self.dates = {}
 
-    def add(self, ymd, date):
-        self.dates[ymd] = date
+    def add(self, dmy, date):
+        self.dates[dmy] = date
 
 
 class Date:
@@ -57,3 +60,9 @@ class Date:
         for i in range(request.size()):
             res *= request[i] in real_nums
         return res
+
+
+dates = Dates()
+dates_raw = request_funcs.get_data_about_all_days()
+for k, v in dates_raw.items():
+    dates.add(k, parse_date(v[0], v[1], v[2]))
