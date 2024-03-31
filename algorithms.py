@@ -27,6 +27,9 @@ class Dates:
     def add(self, dmy, date):
         self.dates[dmy] = date
 
+    def get(self, dmy):
+        return self.dates[dmy]
+
 
 class Date:
     def __init__(self, data):
@@ -38,6 +41,7 @@ class Date:
                 if wnd[0] != prev_room:
                     prev_room = wnd[0]
                     self.rooms += 1
+        self.windows_per_floor = len(data[0])
 
     def get_light_room(self):
         res = []
