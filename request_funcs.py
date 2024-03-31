@@ -39,3 +39,24 @@ def get_data_about_all_days():
     dates = [convert_date_from_str(i) for i in get_dates()]
     dates = [(i[0], i[1], int(str(i[2])[2:])) for i in dates]
     return {dates[i]: get_data(*dates[i]) for i in range(len(dates))}
+
+
+class A:
+    def __init__(self):
+        self.dates = get_dates()
+        dates = [convert_date_from_str(i) for i in get_dates()]
+        self.normal_dates = [(i[0], i[1], int(str(i[2])[2:])) for i in dates]
+        self.data = get_data_about_all_days()
+
+    def get_data(self):
+        return self.data
+
+    def get_normal_dates(self):
+        return self.normal_dates
+
+    def get_dates(self):
+        return self.dates
+
+    def get_data_by_day(self, day, month, year):
+        return self.data[(day, month, year)]
+
