@@ -1,11 +1,12 @@
 def parse_date(rooms_count, windows_for_room, floors):
     data = []
     floors_count = len(floors)
-    room = 1
+    room = 0
     for fl in range(floors_count):
         data.append([])
         roomi = 0
         cur_rooms = 0
+        room += 1
         for wnd in floors[fl]:
             cur_rooms += 1
             if cur_rooms > windows_for_room[roomi]:
