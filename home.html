@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru" prefix="og: http://ogp.me/ns#" class="h-100">
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<head>
+  <meta charset="utf-8">
+  <title>Главная</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootstrap5.ru/css/docs.css">
+  <link rel="icon" href="https://cdn.icon-icons.com/icons2/1910/PNG/512/pear_121458.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="https://cdn.icon-icons.com/icons2/1910/PNG/512/pear_121458.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="https://cdn.icon-icons.com/icons2/1910/PNG/512/pear_121458.png">
+  <meta name="theme-color" content="#7952b3">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Facebook -->
+
+  <style>
+
+
+        .navigation {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 710px;
+            margin: 0 auto;
+        }
+
+      @font-face { font-family: SF; src: url('SFProDisplay-Regular.ttf'); }
+
+      body {
+          font-family: trebuchet ms
+    }
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+       /* Custom default button */
+    .btn-secondary,
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      color: #333;
+      text-shadow: none; /* Prevent inheritance from `body` */
+    }
+
+
+    /*
+     * Base structure
+     */
+
+    body {
+      text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+      box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+
+    }
+
+    .cover-container {
+      max-width: 42em;
+    }
+
+
+    /*
+     * Header
+     */
+
+    .nav-masthead .nav-link {
+      padding: .25rem 0;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .5);
+      background-color: transparent;
+      border-bottom: .25rem solid transparent;
+    }
+
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+      border-bottom-color: rgba(255, 255, 255, .25);
+    }
+
+    .nav-masthead .nav-link + .nav-link {
+      margin-left: 1rem;
+    }
+
+    .nav-masthead .active {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+
+    nav-link {
+            color: #ffc708
+        }
+    .lead {
+      color: #ffc708
+    }
+
+    body {
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+  </style>
+</head>
+
+<body class="d-flex h-100 text-center"  style="background: #ffffff"> <!-- поменять #060424 -->
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+
+      <h3 class="float-md-left mb-0" style="color: #ffc708"><img src="https://cdn.icon-icons.com/icons2/1910/PNG/512/pear_121458.png" width="40" height="40"></img>Свет в окне</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-right">
+            <a class="nav-link active" aria-current="page" style="color: #ffc708" href="home">Один день</a>
+            <a class="nav-link active" aria-current="page" style="color: #ffc708" href="home_all">Все дни</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <h1 style="color: #ffffff">Добро пожаловать!</h1>
+    <p class="lead">"Есть только явь и свет."</p>
+    <p class="lead">Наша цель - облегчить твое существование в этом тяжелом мире окон.</p>
+  </main>
+
+
+
+     <form method="post">
+          <h4 style="color: #ffc708">Дата:
+            <input type="date"
+               id="startTable"
+               name="startGraph"
+               min="2010-01-01T00:00"
+               max="2024-01-31T23:59"
+               step="1">
+        </h4>
+        <button class="btn btn-outline-warning" type="submit" style="">Подтвердить</button>
+
+        </form>
+
+      <div class="table-responsive">
+          <h3> {{ date }} </h3>
+            <table class="table table-bordered border border-warning table-sm">
+                {% for row in tableRows({{ house }}, {{ cnt }}) %}
+                    <tr>
+                    {% for cell in row.Cells %}
+                            {% if cell.Value[1] != 0 %}
+                                <td class="table-warning">
+                                    {% cell.Value[0] %}
+                                </td>
+                            {% else %}
+                                <td class="table-light">
+                                    {% cell.Value[0] %}
+                                </td>
+                            {% end if %}
+                    {% end for %}
+                    </tr>
+                {% end for %}
+            </table>
+      </div>
+
+  <footer class="mt-auto text-white-50">
+    <p><a href="https://vk.com/ly2sch" class="text-white">Л2Ш</a></p>
+  </footer>
+
+</div><script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
