@@ -1,9 +1,9 @@
-def get_light_room(self, data):
+def get_light_room(self):
     res = []
-    for i in range(data.size()):
-        for j in range(data[i].size()):
-            if data[i][j][1] and not(data[i][j][0] in res):
-                res.append(data[i][j][0])
+    for i in range(self.data.size()):
+        for j in range(self.data[i].size()):
+            if self.data[i][j][1] and not(self.data[i][j][0] in res):
+                res.append(self.data[i][j][0])
     return res
 
 def full_check_request(self, request):
